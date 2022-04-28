@@ -6,22 +6,25 @@
 /*   By: cmachado <cmachado@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 19:42:34 by cmachado          #+#    #+#             */
-/*   Updated: 2022/04/27 21:19:18 by cmachado         ###   ########.fr       */
+/*   Updated: 2022/04/28 21:27:34 by cmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include <stdio.h>
+#include <fcntl.h>
 
 char	*get_next_line(int fd)
 {
-	char	*buf;
-	char	*res;
-	int		cnt;
+	static char	buf[BUFFER_SIZE];
+	char		*res = NULL;
+	int			cnt;
 
 	while (1)
 	{
-		cnt = read(fd, &buf, BUFFER_SIZE);
-		if (cnt <= 0 && !buf)
+		cnt = read(fd, buf, BUFFER_SIZE);
+		printf("%s%i", buf, cnt);
+		if (cnt < BUFFER_SIZE)
 			break ;
 	}
 	return (res);
