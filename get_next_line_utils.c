@@ -6,7 +6,7 @@
 /*   By: cmachado <cmachado@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 15:43:54 by cmachado          #+#    #+#             */
-/*   Updated: 2022/05/08 20:39:15 by cmachado         ###   ########.fr       */
+/*   Updated: 2022/05/12 21:24:47 by cmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,10 +105,13 @@ void	set_buf(char *temp, char *buf, int val)
 	int	i;
 
 	i = 0;
-	while (temp[val + 1 + i] != '\0')
+	if (temp)
 	{
-		buf[i] = temp[val + 1 + i];
-		i++;
+		while (temp[val + 1 + i] != '\0')
+		{
+			buf[i] = temp[val + 1 + i];
+			i++;
+		}
 	}
 	while (i <= BUFFER_SIZE)
 	{
