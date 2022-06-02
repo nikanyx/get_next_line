@@ -6,13 +6,13 @@
 /*   By: cmachado <cmachado@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 15:43:54 by cmachado          #+#    #+#             */
-/*   Updated: 2022/05/12 21:24:47 by cmachado         ###   ########.fr       */
+/*   Updated: 2022/06/02 21:43:14 by cmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *str)
+/*size_t	ft_strlen(const char *str)
 {
 	size_t	i;
 
@@ -84,7 +84,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	ft_memcpy(s2, s + start, len);
 	s2[len] = '\0';
 	return (s2);
-}
+}*/
 
 int	check_nl(char *temp)
 {
@@ -94,13 +94,57 @@ int	check_nl(char *temp)
 	while (temp[i] != '\0')
 	{
 		if (temp[i] == '\n')
-			return (i);
+			break ;
 		i++;
 	}
-	return (0);
+	return (i);
 }
 
-void	set_buf(char *temp, char *buf, int val)
+int	set_buf(char *buf, int val)
+{
+	int	i;
+
+	i = 0;
+	while (i <= BUFFER_SIZE)
+	{
+		if (val <= BUFFER_SIZE)
+			buf[i++] = buf[val++];
+		else
+			buf[i++] = '\0';
+	}
+	return (i);
+}
+
+char	*set_temp(char *s1, char *s2)
+{
+	int	slen;
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	if (!s2)
+		return (NULL);
+	else
+	{
+		slen = check_nl(s2);
+		s1 = (char *) malloc(slen + check_nl(s1) + 1);
+	}
+	if (!s1)
+		return (NULL);
+	while (s2[j] != '\0')
+	{
+		if (s1[i] != '\0')
+			i++;
+		else if (j < slen)
+			((char *)s1)[i++] = ((char *)s2)[j++];
+		else if (j >= slen)
+			j = set_buf(s2, slen);
+	}
+	return (s1);
+}
+
+/*void	set_buf(char *temp, char *buf, int val)
 {
 	int	i;
 
@@ -118,4 +162,4 @@ void	set_buf(char *temp, char *buf, int val)
 		buf[i] = '\0';
 		i++;
 	}
-}
+}*/

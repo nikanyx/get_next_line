@@ -6,7 +6,7 @@
 /*   By: cmachado <cmachado@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 19:42:34 by cmachado          #+#    #+#             */
-/*   Updated: 2022/05/12 21:24:48 by cmachado         ###   ########.fr       */
+/*   Updated: 2022/06/02 21:43:13 by cmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*get_next_line(int fd)
 	int			cnt;
 	int			val;
 
-	if (fd < 0)
+	if (fd < 0 || fd >= FOPEN_MAX || BUFFER_SIZE < 1)
 		return (NULL);
 	if (buf[0] != '\0')
 		temp = ft_strjoin(temp, buf);
@@ -35,8 +35,11 @@ char	*get_next_line(int fd)
 		if (buf[0] != '\0')
 			set_buf(NULL, buf, 0);
 		cnt = read(fd, buf, BUFFER_SIZE);
-		temp = ft_strjoin(temp, buf);
-		val = check_nl(temp);
+		if (cnt > 0)
+		{
+			temp = ft_strjoin(temp, buf);
+			val = check_nl(temp);
+		}
 		if (val != 0 || cnt < BUFFER_SIZE)
 		{
 			if (buf[cnt] == '\0' && cnt < BUFFER_SIZE)
@@ -54,13 +57,13 @@ char	*get_next_line(int fd)
 	return (res);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	int		fd;
 	char	*s;
 
 	fd = open("txt.txt", O_RDONLY);
-	s = get_next_line(1000);
+	s = get_next_line(fd);
 	printf("%s", s);
 	while (*s)
 	{
@@ -68,4 +71,4 @@ int	main(void)
 		printf("%s", s);
 	}
 	free(s);
-}
+}*/
