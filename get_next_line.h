@@ -6,7 +6,7 @@
 /*   By: cmachado <cmachado@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 19:44:39 by cmachado          #+#    #+#             */
-/*   Updated: 2022/06/20 21:21:08 by cmachado         ###   ########.fr       */
+/*   Updated: 2022/06/24 21:00:41 by cmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,12 @@
 # define GET_NEXT_LINE_H
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdio.h>
+# include <fcntl.h>
 
 char	*get_next_line(int fd);
+
+int		check_flag(char *buf, int nl);
 
 int		check_nl(char *temp);
 

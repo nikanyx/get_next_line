@@ -6,11 +6,16 @@
 /*   By: cmachado <cmachado@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 15:43:54 by cmachado          #+#    #+#             */
-/*   Updated: 2022/06/20 21:38:50 by cmachado         ###   ########.fr       */
+/*   Updated: 2022/06/24 21:01:31 by cmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+int	check_flag(char *buf, int nl)
+{
+	return (buf[nl - 1] == '\n');
+}
 
 int	check_nl(char *temp)
 {
