@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmachado <cmachado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/27 19:42:34 by cmachado          #+#    #+#             */
-/*   Updated: 2022/09/22 23:11:52 by cmachado         ###   ########.fr       */
+/*   Created: 2022/09/22 22:58:44 by cmachado          #+#    #+#             */
+/*   Updated: 2022/09/22 23:12:04 by cmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*get_next_line(int fd)
 {
-	static char	buf[BUFFER_SIZE + 1];
+	static char	buf[FOPEN_MAX][BUFFER_SIZE + 1];
 	char		*temp;
 	int			cnt;
 	int			nl;
@@ -23,20 +23,20 @@ char	*get_next_line(int fd)
 	temp = NULL;
 	if (fd < 0 || fd >= FOPEN_MAX || BUFFER_SIZE < 1)
 		return (NULL);
-	if (buf[0] != '\0')
+	if (buf[fd][0] != '\0')
 	{
-		temp = set_temp(temp, buf, check_nl(buf));
+		temp = set_temp(temp, buf[fd], check_nl(buf[fd]));
 		if (temp[0] == '\n' && temp[1] == '\0')
 			return (temp);
 	}
 	while (1)
 	{
-		cnt = read(fd, buf, BUFFER_SIZE);
-		buf[BUFFER_SIZE] = 0;
-		nl = check_nl(buf);
-		flag = check_flag(buf, nl);
+		cnt = read(fd, buf[fd], BUFFER_SIZE);
+		buf[fd][BUFFER_SIZE] = 0;
+		nl = check_nl(buf[fd]);
+		flag = check_flag(buf[fd], nl);
 		if (cnt > 0)
-			temp = set_temp(temp, buf, nl);
+			temp = set_temp(temp, buf[fd], nl);
 		if (nl < BUFFER_SIZE || flag == 1)
 			return (temp);
 	}
