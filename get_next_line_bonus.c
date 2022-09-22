@@ -6,7 +6,7 @@
 /*   By: cmachado <cmachado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 22:58:44 by cmachado          #+#    #+#             */
-/*   Updated: 2022/09/23 00:09:05 by cmachado         ###   ########.fr       */
+/*   Updated: 2022/09/23 00:13:28 by cmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ char	*get_next_line(int fd)
 	while (1)
 	{
 		data.cnt = read(fd, buf[fd], BUFFER_SIZE);
+		buf[fd][BUFFER_SIZE] = 0;
 		data.nl = check_nl(buf[fd]);
 		data.flag = check_flag(buf[fd], data.nl);
 		if (data.cnt > 0)

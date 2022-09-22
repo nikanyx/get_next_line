@@ -6,7 +6,7 @@
 /*   By: cmachado <cmachado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 15:43:54 by cmachado          #+#    #+#             */
-/*   Updated: 2022/09/22 23:31:13 by cmachado         ###   ########.fr       */
+/*   Updated: 2022/09/23 00:12:59 by cmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int	check_nl(char *temp)
 	int		i;
 
 	i = 0;
-	temp[BUFFER_SIZE] = 0;
 	if (!temp)
 		return (0);
 	while (temp[i])
