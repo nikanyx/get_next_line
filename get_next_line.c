@@ -6,7 +6,7 @@
 /*   By: cmachado <cmachado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 19:42:34 by cmachado          #+#    #+#             */
-/*   Updated: 2022/09/22 23:11:52 by cmachado         ###   ########.fr       */
+/*   Updated: 2022/09/23 00:02:30 by cmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,35 @@
 
 char	*get_next_line(int fd)
 {
+	t_data		data;
 	static char	buf[BUFFER_SIZE + 1];
-	char		*temp;
-	int			cnt;
-	int			nl;
-	int			flag;
 
-	temp = NULL;
+	data.temp = NULL;
 	if (fd < 0 || fd >= FOPEN_MAX || BUFFER_SIZE < 1)
 		return (NULL);
 	if (buf[0] != '\0')
 	{
-		temp = set_temp(temp, buf, check_nl(buf));
-		if (temp[0] == '\n' && temp[1] == '\0')
-			return (temp);
+		data.temp = set_temp(data.temp, buf, check_nl(buf));
+		if (data.temp[0] == '\n' && data.temp[1] == '\0')
+			return (data.temp);
 	}
 	while (1)
 	{
-		cnt = read(fd, buf, BUFFER_SIZE);
+		data.cnt = read(fd, buf, BUFFER_SIZE);
 		buf[BUFFER_SIZE] = 0;
-		nl = check_nl(buf);
-		flag = check_flag(buf, nl);
-		if (cnt > 0)
-			temp = set_temp(temp, buf, nl);
-		if (nl < BUFFER_SIZE || flag == 1)
-			return (temp);
+		data.nl = check_nl(buf);
+		data.flag = check_flag(buf, data.nl);
+		if (data.cnt > 0)
+			data.temp = set_temp(data.temp, buf, data.nl);
+		if (data.nl < BUFFER_SIZE || data.flag == 1)
+			return (data.temp);
 	}
-	return(temp);
 }
+
+/* int	main(void)
+{
+	int fd = open("text.txt", O_RDONLY);
+	char *s = get_next_line(fd);
+	printf("%s", s);
+	free(s);
+} */
