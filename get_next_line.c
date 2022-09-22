@@ -6,7 +6,7 @@
 /*   By: cmachado <cmachado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 19:42:34 by cmachado          #+#    #+#             */
-/*   Updated: 2022/09/23 00:02:30 by cmachado         ###   ########.fr       */
+/*   Updated: 2022/09/23 00:26:24 by cmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ char	*get_next_line(int fd)
 		if (data.nl < BUFFER_SIZE || data.flag == 1)
 			return (data.temp);
 	}
+	return (data.temp);
 }
 
 /* int	main(void)

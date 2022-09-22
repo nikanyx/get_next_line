@@ -6,7 +6,7 @@
 /*   By: cmachado <cmachado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 22:58:44 by cmachado          #+#    #+#             */
-/*   Updated: 2022/09/23 00:13:28 by cmachado         ###   ########.fr       */
+/*   Updated: 2022/09/23 00:26:46 by cmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,3 +39,21 @@ char	*get_next_line(int fd)
 	}
 	return (data.temp);
 }
+
+/* int	main(void)
+{
+	int fd = open("text.txt", O_RDONLY);
+	int fd2 = open("text2.txt", O_RDONLY);
+	char *s = get_next_line(fd);
+	printf("%s", s);
+	free(s);
+	s = get_next_line(fd);
+	printf("%s", s);
+	free(s);
+	s = get_next_line(fd2);
+	printf("%s", s);
+	free(s);
+	s = get_next_line(fd);
+	printf("%s", s);
+	free(s);
+} */
