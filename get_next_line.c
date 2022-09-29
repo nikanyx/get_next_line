@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmachado <cmachado@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cmachado <cmachado@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 19:42:34 by cmachado          #+#    #+#             */
-/*   Updated: 2022/09/23 00:26:24 by cmachado         ###   ########.fr       */
+/*   Updated: 2022/09/29 19:54:08 by cmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ char	*get_next_line(int fd)
 	while (1)
 	{
 		data.cnt = read(fd, buf, BUFFER_SIZE);
-		buf[BUFFER_SIZE] = 0;
 		data.nl = check_nl(buf);
 		data.flag = check_flag(buf, data.nl);
 		if (data.cnt > 0)
@@ -40,10 +39,14 @@ char	*get_next_line(int fd)
 	return (data.temp);
 }
 
-/* int	main(void)
+/*int	main(void)
 {
-	int fd = open("text.txt", O_RDONLY);
-	char *s = get_next_line(fd);
+	int		fd = open("text.txt", O_RDONLY);
+	char	*s = get_next_line(fd);
+
 	printf("%s", s);
 	free(s);
-} */
+	s = get_next_line(fd);
+	printf("%s", s);
+	free(s);
+}*/

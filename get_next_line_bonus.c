@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmachado <cmachado@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cmachado <cmachado@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 22:58:44 by cmachado          #+#    #+#             */
-/*   Updated: 2022/09/23 00:26:46 by cmachado         ###   ########.fr       */
+/*   Updated: 2022/09/29 19:53:56 by cmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*get_next_line(int fd)
 {
@@ -29,7 +29,6 @@ char	*get_next_line(int fd)
 	while (1)
 	{
 		data.cnt = read(fd, buf[fd], BUFFER_SIZE);
-		buf[fd][BUFFER_SIZE] = 0;
 		data.nl = check_nl(buf[fd]);
 		data.flag = check_flag(buf[fd], data.nl);
 		if (data.cnt > 0)
@@ -56,4 +55,4 @@ char	*get_next_line(int fd)
 	s = get_next_line(fd);
 	printf("%s", s);
 	free(s);
-} */
+}*/

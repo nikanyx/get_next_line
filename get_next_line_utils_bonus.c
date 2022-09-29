@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmachado <cmachado@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cmachado <cmachado@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 15:43:54 by cmachado          #+#    #+#             */
-/*   Updated: 2022/09/23 00:12:59 by cmachado         ###   ########.fr       */
+/*   Updated: 2022/09/29 19:54:04 by cmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 int	check_flag(char *buf, int nl)
 {

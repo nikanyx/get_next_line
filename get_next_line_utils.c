@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmachado <cmachado@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cmachado <cmachado@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 15:43:54 by cmachado          #+#    #+#             */
-/*   Updated: 2022/09/22 23:46:22 by cmachado         ###   ########.fr       */
+/*   Updated: 2022/09/29 19:54:06 by cmachado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
